@@ -63,7 +63,7 @@
       price.textContent = price.getAttribute(isMonthly ? 'data-monthly' : 'data-yearly');
     });
     billingUnits.forEach(function (unit) {
-      unit.textContent = isMonthly ? '(jika dibayar bulanan)' : '(jika dibayar tahunan)';
+      unit.textContent = isMonthly ? '(pembayaran bulanan)' : '(pembayaran tahunan)';
     });
   });
 })();
