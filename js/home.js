@@ -23,21 +23,19 @@
     });
   });
 
-  // Plans with a user cap fade out once the chosen number of users exceeds it
+  // Starter allows at most 10 users and fades out above that, as on Stackfield
   var usersSelect = document.getElementById('tl_users');
-  var cappedPlans = Array.prototype.slice.call(document.querySelectorAll('[data-max-users]'));
+  var starter = document.querySelector('[data-max-users]');
 
-  function updatePlans() {
-    var users = Number(usersSelect.value);
-    cappedPlans.forEach(function (plan) {
-      var isInactive = users > Number(plan.getAttribute('data-max-users'));
-      plan.classList.toggle('tl_plan_inactive', isInactive);
-      plan.querySelector('.tl_plan_limit').hidden = !isInactive;
-    });
+  function updateStarter() {
+    var isInactive = Number(usersSelect.value) > Number(starter.getAttribute('data-max-users'));
+    starter.classList.toggle('tl_plan_inactive', isInactive);
+    starter.querySelector('.tl_plan_limit').hidden = !isInactive;
   }
 
-  usersSelect.addEventListener('change', updatePlans);
-  updatePlans();
+  // Browsers may restore the previous choice on reload
+  usersSelect.addEventListener('change', updateStarter);
+  updateStarter();
 
   // Yearly / monthly billing switch: on means monthly
   var billingSwitch = document.getElementById('tl_billing');
