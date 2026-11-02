@@ -129,21 +129,14 @@
             <div class="tl_controls">
               <label class="tl_users"><span class="tl_users_label">Jumlah pengguna</span>
                 <select class="tl_users_select" id="tl_users">
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
                   <option value="5" selected>5</option>
-                  <option value="6">6</option>
-                  <option value="7">7</option>
-                  <option value="8">8</option>
-                  <option value="9">9</option>
                   <option value="10">10</option>
                   <option value="20">20</option>
                   <option value="40">40</option>
                   <option value="60">60</option>
                   <option value="80">80</option>
                   <option value="100">100</option>
+                  <option value="100+">100+</option>
                 </select>
               </label>
               <div class="tl_billing">
@@ -152,7 +145,7 @@
                 <span class="tl_billing_option" id="tl_billing_monthly">Bulanan</span>
               </div>
             </div>
-            <div class="tl_plans">
+            <div class="tl_plans" id="tl_plans_cloud">
               <div class="tl_plan" data-max-users="10">
                 <h3 class="tl_plan_name">Starter</h3>
                 <p class="tl_plan_price"><span class="tl_plan_currency">Rp</span><span data-yearly="75.000" data-monthly="90.000">75.000</span></p>
@@ -192,6 +185,15 @@
                 </ul>
               </div>
             </div>
+            <div class="tl_large" id="tl_large" hidden>
+              <h3 class="tl_large_title">Tentu saja, paket untuk jumlah pengguna yang lebih besar juga tersedia</h3>
+              <div class="tl_large_box">
+                <p class="tl_large_head">Hubungi kami</p>
+                <p><a href="https://wa.me/6281298219323?text=Halo%2C%20saya%20tertarik%20dengan%20Telegraf%20untuk%20lebih%20dari%20100%20pengguna."
+                  target="_blank" rel="noopener" class="tl_large_link">WhatsApp: +62 812 9821 9323</a></p>
+                <p><a href="mailto:support@telegraf.chat" class="tl_large_link">support@telegraf.chat</a></p>
+              </div>
+            </div>
           </div>
 
           <div role="tabpanel" id="plan-onprem" aria-labelledby="tab-onprem" hidden>
@@ -206,7 +208,7 @@
                     target="_blank" rel="noopener" class="tl_btn tl_btn_dark tl_btn_block">Hubungi kami</a>
                 </div>
                 <ul class="tl_checks">
-                  <li class="tl_check tl_check_strong">Minimum 50 pengguna</li>
+                  <li class="tl_check tl_check_strong">Minimum 100 pengguna</li>
                   <li class="tl_check tl_check_strong">Semua fitur Pro</li>
                   <li class="tl_check">Dipasang di server Anda</li>
                   <li class="tl_check">Data tidak keluar dari jaringan Anda</li>

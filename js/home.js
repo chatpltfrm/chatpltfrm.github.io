@@ -27,10 +27,20 @@
   var usersSelect = document.getElementById('tl_users');
   var starter = document.querySelector('[data-max-users]');
 
+  var cloudPlans = document.getElementById('tl_plans_cloud');
+  var largePlans = document.getElementById('tl_large');
+  var billing = document.querySelector('.tl_billing');
+
   function updateStarter() {
     var isInactive = Number(usersSelect.value) > Number(starter.getAttribute('data-max-users'));
     starter.classList.toggle('tl_plan_inactive', isInactive);
     starter.querySelector('.tl_plan_limit').hidden = !isInactive;
+
+    // "100+" swaps the plans for a contact box, as on Stackfield
+    var isLarge = usersSelect.value === '100+';
+    cloudPlans.hidden = isLarge;
+    largePlans.hidden = !isLarge;
+    billing.style.visibility = isLarge ? 'hidden' : '';
   }
 
   // Browsers may restore the previous choice on reload
