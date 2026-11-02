@@ -3,354 +3,301 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Telegraf</title>
+  <title>Telegraf &ndash; Platform aman untuk Anda dan pelanggan Anda</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta property="og:title" content="Telegraf">
+  <meta name="description" content="Chat tim dan layanan pelanggan omnichannel dalam satu aplikasi. Terenkripsi, dibuat dan di-hosting di Indonesia, tersedia juga on-premise.">
+  <meta property="og:title" content="Telegraf &ndash; Platform aman untuk Anda dan pelanggan Anda">
   <meta property="og:image" content="/img/t_logo.png">
   <meta property="og:site_name" content="Telegraf">
-  <meta property="og:description" content="Mulai gratis hingga 3 agen, atau buka seluruh fitur Telegraf dengan satu harga flat per bulan.">
+  <meta property="og:description" content="Chat tim dan layanan pelanggan omnichannel dalam satu aplikasi. Terenkripsi, dibuat dan di-hosting di Indonesia, tersedia juga on-premise.">
+  <link rel="canonical" href="https://www.telegraf.chat/">
 
-  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
   <script>
     (function () {
       var t = null;
       try { t = localStorage.getItem('tl-theme'); } catch (e) {}
-      var root = document.documentElement;
       if (t ? t === 'dark' : (window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches))
-        root.classList.add('tl-dark');
-      root.classList.add('tl-js', 'tl-preview');
+        document.documentElement.classList.add('tl-dark');
     })();
   </script>
 
   <link rel="preload" href="/fonts/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link href="/css/telegraf.css" rel="stylesheet" media="screen">
-  <link href="/css/pricing.css" rel="stylesheet" media="screen">
-  <link href="/css/theme-toggle.css" rel="stylesheet" media="screen">
   <link href="/css/subpage.css" rel="stylesheet" media="screen">
-  <style>
-    .tl_main_page_container {
-      flex: 1 0 auto;
-      margin-top: 0;
-      padding: 0 16px;
-    }
-    :root { --tl-peek: 480px; }
-    .tl_hero {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      min-height: 360px;
-      min-height: max(360px, calc(100vh - var(--tl-peek)));
-      min-height: max(360px, calc(100svh - var(--tl-peek)));
-      padding: 48px 0 56px;
-      text-align: center;
-    }
-    #harga { padding-top: 0; scroll-margin-top: 24px; }
-    @media (prefers-reduced-motion: no-preference) {
-      html { scroll-behavior: smooth; }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      .tl_frame, .tl_veil, .tl_reel > b,
-      #harga .tl_pricing_title, #harga .tl_pricing_lead, #harga .tl_plans,
-      #harga .tl_plans_footnote {
-        transition: none !important;
-      }
-    }
-    @media (max-width: 767px) {
-      :root { --tl-peek: 450px; }
-      .tl_hero { min-height: max(300px, calc(100svh - var(--tl-peek))); }
-    }
-    .tl_frame {
-      --tl-frame: min(180px, 42vw, max(120px, calc((100svh - var(--tl-peek) - 104px) / 1.1)));
-      position: relative;
-      z-index: 2;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      width: var(--tl-frame);
-      height: var(--tl-frame);
-      margin: 0;
-      padding: calc(var(--tl-frame) * 0.09);
-      background: #2a9df4 url(/img/t_blue.png) center / 142% no-repeat;
-      border-radius: calc(var(--tl-frame) * 0.035);
-      box-shadow: 0 14px 34px rgba(23, 156, 222, 0.22);
-      color: #000000;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
-      font-size: calc(var(--tl-frame) * 0.125);
-      font-weight: 700;
-      line-height: 1;
-      letter-spacing: -0.03em;
-      text-align: left;
-      transition: opacity .3s ease;
-    }
-    .tl_frame_word {
-      align-self: flex-end;
-      white-space: nowrap;
-    }
-    .tl_reeled .tl_frame_word { visibility: hidden; }
-    .tl_frame > .tl_reel {
-      position: absolute;
-      bottom: calc(var(--tl-frame) * 0.09 - 0.3em);
-      height: 1.3em;
-      overflow: hidden;
-      pointer-events: none;
-      -webkit-mask-image: linear-gradient(90deg, transparent, #000 18%, #000 82%, transparent);
-      mask-image: linear-gradient(90deg, transparent, #000 18%, #000 82%, transparent);
-    }
-    .tl_reel > b {
-      position: absolute;
-      top: 0;
-      left: 0;
-      color: var(--tl-muted);
-      font-weight: 400;
-      letter-spacing: -0.01em;
-      white-space: nowrap;
-    }
-    .tl_reel > b.tl_on {
-      color: #000000;
-      font-weight: 700;
-      letter-spacing: -0.03em;
-    }
-    .tl_reel.tl_ready > b {
-      transition: transform .6s cubic-bezier(.65, 0, .35, 1), opacity .6s ease, color .2s ease;
-    }
-    .tl_frame > span {
-      position: relative;
-      z-index: 1;
-    }
-    .tl-js:not(.tl-preview) .tl_frame { opacity: 0; pointer-events: none; }
-    .tl-preview .tl_frame { cursor: pointer; }
-    .tl-preview .tl_reel > b { pointer-events: auto; }
-
-    #harga .tl_pricing_title,
-    #harga .tl_pricing_lead,
-    #harga .tl_plans,
-    #harga .tl_plans_footnote {
-      transition: filter .45s ease;
-    }
-    .tl-preview #harga .tl_pricing_title { filter: blur(1.2px); }
-    .tl-preview #harga .tl_pricing_lead { filter: blur(1.5px); }
-    .tl-preview #harga .tl_plans,
-    .tl-preview #harga .tl_plans_footnote { filter: blur(7px); }
-
-    .tl_veil {
-      position: fixed;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      z-index: 3;
-      height: min(calc(var(--tl-peek) - 1px), calc(100vh - 360px));
-      height: min(calc(var(--tl-peek) - 1px), calc(100svh - 360px));
-      cursor: pointer;
-      opacity: 0;
-      visibility: hidden;
-      transition: opacity .3s ease, visibility 0s linear .3s;
-    }
-    .tl-preview .tl_veil {
-      opacity: 1;
-      visibility: visible;
-      transition: opacity .3s ease;
-    }
-    @media (max-width: 767px) {
-      .tl_veil { height: min(calc(var(--tl-peek) - 1px), calc(100svh - 300px)); }
-    }
-    .tl_veil > i {
-      position: absolute;
-      inset: 0;
-    }
-    .tl_veil_fade {
-      background: linear-gradient(to bottom, transparent 20%, var(--tl-bg) calc(100% - 110px));
-    }
-    .tl_veil .tl_page_footer {
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      margin: 0 0 32px;
-      cursor: default;
-    }
-
-  </style>
+  <link href="/css/theme-toggle.css" rel="stylesheet" media="screen">
+  <link href="/css/home.css" rel="stylesheet" media="screen">
 </head>
 
 <body>
-  <button id="theme-toggle" class="tl-theme-toggle" aria-label="Toggle day/night theme">
-    <span class="tl-ic tl-ic-sun">
-      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-    </span>
-    <span class="tl-ic tl-ic-moon">
-      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-    </span>
-  </button>
+  <svg width="0" height="0" class="tl_sr" aria-hidden="true">
+    <symbol id="i-key" viewBox="0 0 31 32"><path d="M24.5 10.125a2.667 2.667 0 1 1-5.334 0 2.667 2.667 0 0 1 5.334 0z"/><path d="M20.604 1.992a9.4 9.4 0 0 0-9.4 9.4c0 1.058.175 2.071.496 3.021l-9.433 9.438a1.33 1.33 0 0 0-.392.942v4c0 .354.142.692.392.942s.587.392.942.392h4c.354 0 .692-.142.942-.392l.946-.946h2.558c.733 0 1.325-.592 1.325-1.325V25.26l2.287-.042c.733 0 1.325-.592 1.325-1.325v-2.6l.996-.996a9.4 9.4 0 0 0 12.417-8.904 9.4 9.4 0 0 0-9.4-9.4zm-3.583 15.104-2.754 2.754.021.012c.096-.1.213-.188.338-.254a1.331 1.331 0 0 0-.688 1.163v1.8l-2.108.042a1.324 1.324 0 0 0-1.504 1.292v2.238H8.497c-.504 0-.942.279-1.167.696a1.11 1.11 0 0 1 .067-.117l-.742.738H4.543v-2.113L14.906 14.98a6.705 6.705 0 0 1-1.033-3.588c0-1.8.7-3.487 1.971-4.763a6.69 6.69 0 0 1 4.762-1.971c1.8 0 3.488.7 4.762 1.971 1.271 1.271 1.971 2.962 1.971 4.763s-.7 3.488-1.971 4.762a6.69 6.69 0 0 1-4.762 1.971 6.681 6.681 0 0 1-3.583-1.029z"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 32 32"><path d="M24.151 10.992V8.345C24.151 3.85 20.495.193 16 .193S7.849 3.85 7.849 8.345v2.647c-2.59.355-4.599 2.559-4.599 5.244v10.252a5.324 5.324 0 0 0 5.317 5.319h14.866a5.324 5.324 0 0 0 5.317-5.319V16.236c0-2.685-2.009-4.89-4.599-5.244M16 2.693a5.66 5.66 0 0 1 5.651 5.652v2.574H10.35V8.345A5.66 5.66 0 0 1 16 2.693m10.25 23.795a2.82 2.82 0 0 1-2.817 2.819H8.567a2.82 2.82 0 0 1-2.817-2.819V16.236a2.82 2.82 0 0 1 2.817-2.817h14.866a2.82 2.82 0 0 1 2.817 2.817z"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 32 32"><path d="M16 1.333A10.66 10.66 0 0 1 26.667 12c0 4.885-3.619 10.955-8.616 17a2.657 2.657 0 0 1-4.09-.001C8.99 23.017 5.333 16.891 5.333 12A10.66 10.66 0 0 1 16 1.333zM16 4c-4.424 0-8 3.576-8 8 0 3.907 3.261 9.482 7.623 14.822l.383.464.382-.465c4.382-5.392 7.611-10.919 7.611-14.822 0-4.424-3.576-8-8-8zm0 5.333a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"/></symbol>
+    <symbol id="i-server" viewBox="0 0 32 32"><path d="M7.13 8.444c.381-.394.997-.81 1.862-1.189C10.717 6.5 13.194 6 16 6s5.283.5 7.008 1.255c.865.378 1.481.794 1.862 1.189.375.388.463.687.463.89s-.089.502-.463.89c-.381.394-.997.81-1.862 1.189-1.725.755-4.202 1.255-7.008 1.255s-5.283-.5-7.008-1.255c-.865-.378-1.481-.794-1.862-1.189-.375-.388-.463-.687-.463-.89s.088-.502.463-.89zM5.213 6.59C4.508 7.319 4 8.248 4 9.333v13.333c0 1.085.508 2.015 1.213 2.743.698.722 1.644 1.312 2.71 1.778 2.135.934 4.992 1.479 8.077 1.479s5.942-.544 8.077-1.479c1.066-.466 2.012-1.056 2.71-1.778.705-.729 1.213-1.658 1.213-2.743V9.333c0-1.085-.508-2.014-1.213-2.743-.698-.722-1.645-1.312-2.71-1.778-2.135-.934-4.992-1.479-8.077-1.479s-5.942.544-8.077 1.479c-1.066.466-2.012 1.056-2.71 1.778zM25.333 16c0 .203-.089.502-.463.89-.381.394-.997.81-1.862 1.189-1.725.755-4.202 1.255-7.008 1.255s-5.283-.5-7.008-1.255c-.865-.378-1.481-.794-1.862-1.189-.375-.388-.463-.687-.463-.89v-2.791c.392.237.814.452 1.256.645 2.135.934 4.992 1.479 8.077 1.479s5.942-.544 8.077-1.479c.442-.194.864-.408 1.256-.645V16zM6.667 19.876c.392.237.814.452 1.256.645C10.058 21.455 12.915 22 16 22s5.942-.544 8.077-1.479c.442-.194.864-.408 1.256-.645v2.791c0 .203-.089.502-.463.89-.381.394-.997.81-1.862 1.189-1.725.755-4.202 1.255-7.008 1.255s-5.283-.5-7.008-1.255c-.865-.378-1.481-.794-1.862-1.189-.375-.388-.463-.687-.463-.89v-2.791z"/></symbol>
+  </svg>
+
   <div class="tl_page_wrap">
-    <div class="container clearfix tl_page_container tl_main_page_container">
-      <div class="tl_page">
-        <div class="tl_main_wrap">
-          <div class="tl_hero">
-            <h1 class="tl_frame">
-              <span>Enterprise</span><span class="tl_sr"> Platform</span>
-              <span class="tl_frame_word" aria-hidden="true">CRM</span>
-            </h1>
+    <header class="tl_nav">
+      <div class="tl_wrap tl_nav_inner">
+        <a href="/" class="tl_brand">Telegraf<span class="tl_brand_origin"><span class="tl_flag" aria-hidden="true"></span><span class="tl_brand_origin_text">MADE &amp; HOSTED<br>IN INDONESIA</span></span></a>
+        <nav class="tl_nav_links" aria-label="Utama">
+          <a href="#keamanan" class="tl_nav_link">Keamanan</a>
+          <a href="#harga" class="tl_nav_link">Harga</a>
+        </nav>
+        <div class="tl_nav_end">
+          <button id="theme-toggle" class="tl-theme-toggle" aria-label="Ganti tema terang/gelap">
+            <span class="tl-ic tl-ic-sun">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+            </span>
+            <span class="tl-ic tl-ic-moon">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+            </span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="tl_hero">
+        <div class="tl_wrap">
+          <h1 class="tl_hero_title">Platform aman untuk Anda dan pelanggan Anda</h1>
+          <p class="tl_hero_lead">Ideal untuk badan pemerintahan, bank, universitas, dan semua orang.</p>
+          <div class="tl_hero_actions">
+            <a href="https://web.telegraf.chat" class="tl_btn tl_btn_primary">Coba gratis 14 hari</a>
+            <a href="#harga" class="tl_btn">Lihat harga</a>
           </div>
 
-          <div class="tl_veil" aria-hidden="true"><i class="tl_veil_fade"></i></div>
-
-          <section class="tl_pricing_wrap" id="harga" aria-labelledby="tl_pricing_title">
-            <div class="tl_pricing_hero">
-              <h2 class="tl_pricing_title" id="tl_pricing_title">Mulai secara gratis.</h2>
-              <p class="tl_pricing_lead">Atau coba paket Premium.</p>
-            </div>
-
-            <div class="tl_plans">
-              <div class="tl_plan">
-                <h3 class="tl_plan_name">Gratis</h3>
-                <p class="tl_plan_desc">Untuk tim kecil yang baru mulai.</p>
-                <div class="tl_plan_pricing">
-                  <p class="tl_plan_note">Gratis selamanya</p>
-                  <p class="tl_plan_price">Rp0 <span class="tl_plan_period">/ bulan</span></p>
-                </div>
-                <a href="https://web.telegraf.chat" target="_blank" rel="noopener" class="tl_plan_cta">Mulai gratis</a>
-                <ul class="tl_plan_features">
-                  <li><span>Obrolan tanpa batas</span></li>
-                  <li><span>Riwayat pesan tanpa batas</span></li>
-                  <li><span>Grup dan pesan langsung</span></li>
-                  <li><span>Hingga 3 agen</span></li>
-                  <li class="tl_no"><span><span class="tl_sr">Tidak termasuk: </span>Kotak masuk omnichannel terpadu</span></li>
-                  <li class="tl_no"><span><span class="tl_sr">Tidak termasuk: </span>Distribusi percakapan otomatis ke agen</span></li>
-                  <li class="tl_no"><span><span class="tl_sr">Tidak termasuk: </span>Laporan dan analitik tim</span></li>
-                  <li class="tl_no"><span><span class="tl_sr">Tidak termasuk: </span>Dukungan prioritas</span></li>
-                  <li><span>Tanpa biaya tambahan atau add-on</span></li>
-                  <li class="tl_sec tl_no"><span><svg class="tl_sec_icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 3l1.9 5.6L17.5 10.5l-5.6 1.9L10 18l-1.9-5.6L2.5 10.5l5.6-1.9zM18 14l.9 2.6 2.6.9-2.6.9L18 21l-.9-2.6-2.6-.9 2.6-.9z"/></svg>AI</span></li>
-                  <li class="tl_no"><span><span class="tl_sr">Tidak termasuk: </span>Telegraf<sup class="tl_pow">2</sup></span></li>
-                  <li class="tl_no"><span><span class="tl_sr">Tidak termasuk: </span>Tim frontline</span></li>
-                  <li class="tl_no"><span><span class="tl_sr">Tidak termasuk: </span>Single sign-on (SAML)<span class="tl_fn_mark">*</span></span></li>
-                  <li class="tl_no"><span><span class="tl_sr">Tidak termasuk: </span>Manajemen pengguna SCIM<span class="tl_fn_mark">*</span></span></li>
-                  <li class="tl_no"><span><span class="tl_sr">Tidak termasuk: </span>Dukungan integrasi EMM<span class="tl_fn_mark">*</span></span></li>
-                </ul>
-              </div>
-
-              <div class="tl_plan tl_plan_featured">
-                <span class="tl_plan_badge">Semua fitur</span>
-                <h3 class="tl_plan_name">Premium</h3>
-                <p class="tl_plan_desc">Untuk tim yang melayani pelanggan setiap hari.</p>
-                <div class="tl_plan_pricing">
-                  <p class="tl_plan_note">Flat untuk seluruh tim</p>
-                  <p class="tl_plan_price">Rp2.499.000 <span class="tl_plan_period">/ bulan</span></p>
-                </div>
-                <a href="https://wa.me/6281298219323?text=Halo%2C%20saya%20ingin%20berlangganan%20Telegraf%20Premium."
-                  target="_blank" rel="noopener" class="tl_plan_cta tl_plan_cta_primary">Berlangganan Premium</a>
-                <ul class="tl_plan_features">
-                  <li><span>Obrolan tanpa batas</span></li>
-                  <li><span>Riwayat pesan tanpa batas</span></li>
-                  <li><span>Grup dan pesan langsung</span></li>
-                  <li><span>Agen tanpa batas</span></li>
-                  <li><span>Kotak masuk omnichannel terpadu</span></li>
-                  <li><span>Distribusi percakapan otomatis ke agen</span></li>
-                  <li><span>Laporan dan analitik tim</span></li>
-                  <li><span>Dukungan prioritas</span></li>
-                  <li><span>Tanpa biaya tambahan atau add-on</span></li>
-                  <li class="tl_sec tl_hl"><span><svg class="tl_sec_icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 3l1.9 5.6L17.5 10.5l-5.6 1.9L10 18l-1.9-5.6L2.5 10.5l5.6-1.9zM18 14l.9 2.6 2.6.9-2.6.9L18 21l-.9-2.6-2.6-.9 2.6-.9z"/></svg>AI</span></li>
-                  <li class="tl_hl"><span>Telegraf<sup class="tl_pow">2</sup> <span class="tl_soon">Segera hadir</span></span></li>
-                  <li class="tl_no"><span><span class="tl_sr">Tidak termasuk: </span>Tim frontline</span></li>
-                  <li class="tl_no"><span><span class="tl_sr">Tidak termasuk: </span>Single sign-on (SAML)<span class="tl_fn_mark">*</span></span></li>
-                  <li class="tl_no"><span><span class="tl_sr">Tidak termasuk: </span>Manajemen pengguna SCIM<span class="tl_fn_mark">*</span></span></li>
-                  <li class="tl_no"><span><span class="tl_sr">Tidak termasuk: </span>Dukungan integrasi EMM<span class="tl_fn_mark">*</span></span></li>
-                </ul>
-              </div>
-
-              <div class="tl_plan">
-                <h3 class="tl_plan_name">Premium+</h3>
-                <p class="tl_plan_desc">Untuk perusahaan dengan kebutuhan skala lanjutan.</p>
-                <div class="tl_plan_pricing">
-                  <p class="tl_plan_contact">
-                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.05 14.14A6 6 0 1 1 20.2 11.5Q20.5 13.6 21.6 15.3Q19 15.1 17.05 14.14Z"/><path class="tl_icon_front" d="M6.85 20.42A6.3 6.3 0 1 0 3.08 16.65Q2.9 18.9 2.2 21.4Q5 21.4 6.85 20.42Z"/></svg>
-                    Hubungi kami untuk harga
-                  </p>
-                </div>
-                <a href="https://wa.me/6281298219323?text=Halo%2C%20saya%20ingin%20mengetahui%20harga%20Telegraf%20Premium%2B."
-                  target="_blank" rel="noopener" class="tl_plan_cta">Hubungi kami</a>
-                <ul class="tl_plan_features">
-                  <li><span>Obrolan tanpa batas</span></li>
-                  <li><span>Riwayat pesan tanpa batas</span></li>
-                  <li><span>Grup dan pesan langsung</span></li>
-                  <li><span>Agen tanpa batas</span></li>
-                  <li><span>Kotak masuk omnichannel terpadu</span></li>
-                  <li><span>Distribusi percakapan otomatis ke agen</span></li>
-                  <li><span>Laporan dan analitik tim</span></li>
-                  <li><span>Dukungan prioritas</span></li>
-                  <li><span>Tanpa biaya tambahan atau add-on</span></li>
-                  <li class="tl_sec tl_hl"><span><svg class="tl_sec_icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 3l1.9 5.6L17.5 10.5l-5.6 1.9L10 18l-1.9-5.6L2.5 10.5l5.6-1.9zM18 14l.9 2.6 2.6.9-2.6.9L18 21l-.9-2.6-2.6-.9 2.6-.9z"/></svg>AI</span></li>
-                  <li class="tl_hl"><span>Telegraf<sup class="tl_pow">2</sup> <span class="tl_soon">Segera hadir</span></span></li>
-                  <li><span>Tim frontline</span></li>
-                  <li><span>Single sign-on (SAML)<span class="tl_fn_mark">*</span></span></li>
-                  <li><span>Manajemen pengguna SCIM<span class="tl_fn_mark">*</span></span></li>
-                  <li><span>Dukungan integrasi EMM<span class="tl_fn_mark">*</span></span></li>
-                </ul>
-              </div>
-            </div>
-            <p class="tl_plans_footnote"><span class="tl_fn_mark" aria-hidden="true">*</span>Sesuai permintaan.</p>
-
-            <h2 class="tl_pricing_heading">Pertanyaan yang sering diajukan</h2>
-            <div class="tl_faq">
-              <details>
-                <summary>Kenapa Telegraf lebih hemat?</summary>
-                <p>Harga untuk chat tim dan CRM biasanya terpisah per orang, sekitar Rp11,2 juta per
-                  bulan untuk tim 20 orang. Telegraf menggabungkan keduanya seharga Rp2.499.000,
-                  jadi Anda <a href="#harga" class="tl_faq_save">hemat Rp8,7 juta setiap bulan</a>. Makin banyak anggota tim, makin besar hematnya.</p>
-                <p class="tl_faq_note">Berdasarkan harga publik chat tim (Rp161.442/pengguna) dan CRM
-                  (Rp400.000/agen) per 29&nbsp;September&nbsp;2026.</p>
-              </details>
-              <details>
-                <summary>Apakah Premium dihitung per agen?</summary>
-                <p>Tidak. Harga sudah flat untuk seluruh tim Anda.
-                  Semua fitur langsung terbuka dan tidak ada add-on yang perlu dibeli
-                  terpisah.</p>
-              </details>
-              <details>
-                <summary>Apakah harga sudah termasuk pajak?</summary>
-                <p>Harga yang tercantum sudah termasuk atau akan ditambahkan pajak sesuai
-                  peraturan perpajakan yang berlaku di Indonesia.</p>
-              </details>
-              <details>
-                <summary>Bisakah saya berhenti berlangganan kapan saja?</summary>
-                <p>Tentu. Dan penghentian di tengah
-                  periode dapat disertai pengembalian dana. Lihat perhitungannya pada bagian
-                  <a href="/terms#langganan-refund">Ketentuan Penggunaan</a>.</p>
-              </details>
-            </div>
-
-            <div class="tl_pricing_bottom">
-              <h2>Punya pertanyaan lain?</h2>
-              <p>Apa pun pekerjaan dan kebutuhan Anda.</p>
-              <a href="https://wa.me/6281298219323" target="_blank" rel="noopener" class="tl_plan_cta">Hubungi kami</a>
-            </div>
-
-          </section>
         </div>
+      </section>
 
-      </div>
-    </div>
+      <section class="tl_section tl_section_soft" id="keamanan">
+        <div class="tl_wrap">
+          <div class="tl_section_head">
+            <p class="tl_eyebrow">Keamanan</p>
+            <h2 class="tl_section_title">Dibangun untuk data yang sensitif</h2>
+            <p class="tl_section_lead">Percakapan tim dan data pelanggan Anda tetap terlindungi dan berada di Indonesia.</p>
+          </div>
+          <div class="tl_security">
+            <div class="tl_security_item">
+              <svg class="tl_icon" aria-hidden="true"><use href="#i-lock"/></svg>
+              <div>
+                <h3 class="tl_security_title">Enkripsi di setiap koneksi</h3>
+                <p class="tl_security_text">Pesan, data pelanggan, dan pembaruan di aplikasi selalu dikirim
+                  dengan enkripsi AES-256.</p>
+              </div>
+            </div>
+            <div class="tl_security_item">
+              <svg class="tl_icon" aria-hidden="true"><use href="#i-pin"/></svg>
+              <div>
+                <h3 class="tl_security_title">Dibuat dan di-hosting di Indonesia</h3>
+                <p class="tl_security_text">Dikembangkan oleh PT. Chat Platform Indonesia. Data layanan Cloud disimpan
+                  di datacenter di Indonesia.</p>
+              </div>
+            </div>
+            <div class="tl_security_item">
+              <svg class="tl_icon" aria-hidden="true"><use href="#i-server"/></svg>
+              <div>
+                <h3 class="tl_security_title">Pilihan on-premise</h3>
+                <p class="tl_security_text">Pasang Telegraf di server milik organisasi Anda, sehingga data
+                  tidak pernah keluar dari jaringan Anda.</p>
+              </div>
+            </div>
+            <div class="tl_security_item">
+              <svg class="tl_icon" aria-hidden="true"><use href="#i-key"/></svg>
+              <div>
+                <h3 class="tl_security_title">Akses yang terkendali</h3>
+                <p class="tl_security_text">Masuk dengan kode sekali pakai lewat email, tim privat hanya dengan undangan,
+                  dan kunci kanal yang tidak pernah dikirim ke perangkat.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-    <div class="tl_page_footer">
-      <a href="#harga" class="tl_page_footer_link">Harga</a>
-      &middot; <a href="/privacy" class="tl_page_footer_link">Kebijakan Privasi</a>
-      &middot; <a href="/terms" class="tl_page_footer_link">Ketentuan Penggunaan</a>
-      <div class="tl_page_footer_org"><a href="/"
-          class="tl_page_footer_link">PT. Chat Platform Indonesia</a>
-        &copy; 2017&ndash;<span id="tl_footer_year"></span>
+      <section class="tl_section" id="harga">
+        <div class="tl_wrap">
+          <div class="tl_section_head">
+            <p class="tl_eyebrow">Harga</p>
+            <h2 class="tl_section_title">Harga sederhana per pengguna</h2>
+            <p class="tl_section_lead">Chat tim dan layanan pelanggan dalam satu langganan.</p>
+          </div>
+
+          <div class="tl_tabs" role="tablist" aria-label="Pilihan layanan">
+            <button class="tl_tab" role="tab" id="tab-cloud" aria-controls="plan-cloud" aria-selected="true">Cloud</button>
+            <button class="tl_tab" role="tab" id="tab-onprem" aria-controls="plan-onprem" aria-selected="false" tabindex="-1">On-premise</button>
+          </div>
+
+          <div class="tl_panel" role="tabpanel" id="plan-cloud" aria-labelledby="tab-cloud">
+            <div class="tl_controls">
+              <label class="tl_users"><span class="tl_users_label">Jumlah pengguna</span>
+                <select class="tl_users_select" id="tl_users">
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5" selected>5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+                  <option value="20">20</option>
+                  <option value="40">40</option>
+                  <option value="60">60</option>
+                  <option value="80">80</option>
+                  <option value="100">100</option>
+                </select>
+              </label>
+              <div class="tl_billing">
+                <span class="tl_billing_option tl_billing_option_active" id="tl_billing_yearly">Tahunan (HEMAT 17%)</span>
+                <button class="tl_switch" id="tl_billing" role="switch" aria-checked="false" aria-labelledby="tl_billing_monthly"></button>
+                <span class="tl_billing_option" id="tl_billing_monthly">Bulanan</span>
+              </div>
+            </div>
+            <div class="tl_plans">
+              <div class="tl_plan" data-max-users="10">
+                <h3 class="tl_plan_name">Starter</h3>
+                <p class="tl_plan_price"><span class="tl_plan_currency">Rp</span><span data-yearly="75.000" data-monthly="90.000">75.000</span></p>
+                <p class="tl_plan_unit">per pengguna dan bulan</p>
+                <p class="tl_plan_unit tl_billing_unit">(jika dibayar tahunan)</p>
+                <div class="tl_plan_cta">
+                  <a href="https://web.telegraf.chat" class="tl_btn tl_btn_dark tl_btn_block">Coba gratis 14 hari</a>
+                  <p class="tl_plan_limit" hidden>Paket ini hanya tersedia untuk maksimal 10 pengguna.</p>
+                </div>
+                <ul class="tl_checks">
+                  <li class="tl_check tl_check_strong">Maks. 3 tim</li>
+                  <li class="tl_check tl_check_strong">Maks. 10 pengguna</li>
+                  <li class="tl_check">Chat tim</li>
+                  <li class="tl_check">DMs</li>
+                  <li class="tl_check">Polling</li>
+                  <li class="tl_check">Kotak masuk omnichannel</li>
+                  <li class="tl_check">Penyimpanan file</li>
+                </ul>
+              </div>
+
+              <div class="tl_plan">
+                <h3 class="tl_plan_name">Pro</h3>
+                <p class="tl_plan_price"><span class="tl_plan_currency">Rp</span><span data-yearly="100.000" data-monthly="120.000">100.000</span></p>
+                <p class="tl_plan_unit">per pengguna dan bulan</p>
+                <p class="tl_plan_unit tl_billing_unit">(jika dibayar tahunan)</p>
+                <div class="tl_plan_cta">
+                  <a href="https://web.telegraf.chat" class="tl_btn tl_btn_dark tl_btn_block">Coba gratis 14 hari</a>
+                </div>
+                <ul class="tl_checks">
+                  <li class="tl_check tl_check_strong">Tim tanpa batas</li>
+                  <li class="tl_check tl_check_strong">Pengguna tanpa batas</li>
+                  <li class="tl_check">Chat tim</li>
+                  <li class="tl_check">DMs</li>
+                  <li class="tl_check">Polling</li>
+                  <li class="tl_check">Kotak masuk omnichannel</li>
+                  <li class="tl_check">Penyimpanan file</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="tl_panel" role="tabpanel" id="plan-onprem" aria-labelledby="tab-onprem" hidden>
+            <div class="tl_plans tl_plans_single">
+              <div class="tl_plan">
+                <h3 class="tl_plan_name">On-premise</h3>
+                <p class="tl_plan_price"><span class="tl_plan_currency">Rp</span>200.000</p>
+                <p class="tl_plan_unit">per pengguna dan bulan</p>
+                <p class="tl_plan_unit">(jika dibayar tahunan)</p>
+                <div class="tl_plan_cta">
+                  <a href="https://wa.me/6281298219323?text=Halo%2C%20saya%20tertarik%20dengan%20Telegraf%20On-premise."
+                    target="_blank" rel="noopener" class="tl_btn tl_btn_dark tl_btn_block">Hubungi kami</a>
+                </div>
+                <ul class="tl_checks">
+                  <li class="tl_check tl_check_strong">Minimum 50 pengguna</li>
+                  <li class="tl_check tl_check_strong">Semua fitur Pro</li>
+                  <li class="tl_check">Dipasang di server Anda</li>
+                  <li class="tl_check">Data tidak keluar dari jaringan Anda</li>
+                  <li class="tl_check">Bantuan instalasi</li>
+                  <li class="tl_check">Pembaruan versi</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <p class="tl_pricing_note">Semua harga sudah termasuk PPN. Tidak ada biaya tambahan.</p>
+
+        </div>
+      </section>
+
+      <section class="tl_section tl_section_soft" id="faq">
+        <div class="tl_wrap">
+          <div class="tl_section_head">
+            <h2 class="tl_section_title">Pertanyaan yang sering diajukan</h2>
+          </div>
+          <div class="tl_faq">
+            <details class="tl_faq_item">
+              <summary class="tl_faq_q">Kenapa Telegraf lebih hemat?</summary>
+              <p class="tl_faq_a">Biasanya chat tim dan CRM dibeli terpisah, masing-masing dengan harga per orang.
+                Di Telegraf keduanya ada dalam satu langganan.</p>
+            </details>
+            <details class="tl_faq_item">
+              <summary class="tl_faq_q">Apakah harga sudah termasuk pajak?</summary>
+              <p class="tl_faq_a">Sudah. Semua harga yang tercantum sudah termasuk PPN, jadi yang Anda bayar
+                sama dengan harga yang tertera, tanpa biaya tambahan.</p>
+            </details>
+            <details class="tl_faq_item">
+              <summary class="tl_faq_q">Bisakah saya berhenti berlangganan kapan saja?</summary>
+              <p class="tl_faq_a">Bisa. Penghentian di tengah periode dapat disertai pengembalian dana. Lihat
+                perhitungannya pada <a href="/terms#langganan">Ketentuan Penggunaan</a>.</p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <section class="tl_section">
+        <div class="tl_wrap">
+          <div class="tl_cta">
+            <h2 class="tl_cta_title">Siap mencoba Telegraf?</h2>
+            <p class="tl_cta_lead">Coba gratis, atau bicarakan kebutuhan organisasi Anda dengan kami.</p>
+            <div class="tl_cta_actions">
+              <a href="https://web.telegraf.chat" class="tl_btn tl_btn_inverse">Coba gratis 14 hari</a>
+              <a href="https://wa.me/6281298219323" target="_blank" rel="noopener" class="tl_btn tl_btn_outline">Hubungi kami</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="tl_footer">
+      <div class="tl_wrap">
+        <p class="tl_footer_help">Kami siap membantu! <a href="mailto:support@telegraf.chat" class="tl_footer_help_link">support@telegraf.chat</a></p>
+        <div class="tl_footer_grid">
+          <div>
+            <p class="tl_footer_title">Telegraf</p>
+            <ul class="tl_footer_links">
+              <li><a href="#keamanan" class="tl_footer_link">Keamanan</a></li>
+              <li><a href="#harga" class="tl_footer_link">Harga</a></li>
+            </ul>
+          </div>
+          <div>
+            <p class="tl_footer_title">Perusahaan</p>
+            <ul class="tl_footer_links">
+              <li><a href="/privacy" class="tl_footer_link">Kebijakan Privasi</a></li>
+              <li><a href="/terms" class="tl_footer_link">Ketentuan Penggunaan</a></li>
+            </ul>
+          </div>
+          <div>
+            <p class="tl_footer_title">Alamat</p>
+            <p class="tl_footer_address">
+              Jl. Niin No 24, Depok, Jawa Barat 16426<br>
+              Indonesia
+            </p>
+          </div>
+        </div>
+        <div class="tl_footer_bottom">
+          <span>&copy; 2017&ndash;<span id="tl_footer_year">2026</span> PT. Chat Platform Indonesia</span>
+        </div>
       </div>
-    </div>
+    </footer>
   </div>
 
-  <script>
-    (function () {
-      document.getElementById('tl_footer_year').textContent = new Date().getFullYear();
-    })();
-  </script>
-  <script src="/js/hero-words.js"></script>
-  <script src="/js/pricing.js"></script>
+  <script src="/js/home.js"></script>
   <script src="/js/theme-toggle.js"></script>
-  <script src="/js/back-to-top.js"></script>
 </body>
 
 </html>
