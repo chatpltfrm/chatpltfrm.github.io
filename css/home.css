@@ -590,7 +590,7 @@ html.tl-dark .tl_flag { box-shadow: none; }
 /* Footer */
 
 .tl_footer {
-  padding: 0 0 40px;
+  padding: 0 0 18px;
   border-top: 1px solid var(--tl-line);
   background: var(--tl-bg-soft);
   font-size: 14px;
@@ -636,15 +636,10 @@ html.tl-dark .tl_flag { box-shadow: none; }
 }
 .tl_footer_link:hover { color: var(--tl-fg); }
 .tl_footer_bottom {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
   margin-top: 40px;
-  padding-top: 20px;
-  border-top: 1px solid var(--tl-line);
   color: var(--tl-muted);
+  font-size: 11px;
+  text-align: center;
 }
 
 .tl_footer_address { padding-top: 3px; color: var(--tl-text); }
