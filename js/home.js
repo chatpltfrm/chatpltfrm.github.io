@@ -51,8 +51,8 @@
   var billingSwitch = document.getElementById('tl_billing');
   var yearlyOption = document.getElementById('tl_billing_yearly');
   var monthlyOption = document.getElementById('tl_billing_monthly');
+  // Prices and their billing notes carry both texts, so the page's language decides the wording
   var prices = Array.prototype.slice.call(document.querySelectorAll('[data-yearly]'));
-  var billingUnits = Array.prototype.slice.call(document.querySelectorAll('.tl_billing_unit'));
 
   billingSwitch.addEventListener('click', function () {
     var isMonthly = billingSwitch.getAttribute('aria-checked') !== 'true';
@@ -61,9 +61,6 @@
     monthlyOption.classList.toggle('tl_billing_option_active', isMonthly);
     prices.forEach(function (price) {
       price.textContent = price.getAttribute(isMonthly ? 'data-monthly' : 'data-yearly');
-    });
-    billingUnits.forEach(function (unit) {
-      unit.textContent = isMonthly ? '(pembayaran bulanan)' : '(pembayaran tahunan)';
     });
   });
 })();

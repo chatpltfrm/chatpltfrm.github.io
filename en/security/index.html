@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Security &ndash; Telegraf</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="How Telegraf protects your data: servers in Indonesia, AES-256 encryption, Indonesia&rsquo;s Personal Data Protection Law, and an on-premise option.">
+  <meta property="og:title" content="Security &ndash; Telegraf">
+  <meta property="og:image" content="/img/t_logo.png">
+  <meta property="og:site_name" content="Telegraf">
+  <meta property="og:description" content="How Telegraf protects your data: servers in Indonesia, AES-256 encryption, Indonesia&rsquo;s Personal Data Protection Law, and an on-premise option.">
+  <link rel="canonical" href="https://www.telegraf.chat/en/security/">
+  <link rel="alternate" hreflang="id" href="https://www.telegraf.chat/security/">
+  <link rel="alternate" hreflang="en" href="https://www.telegraf.chat/en/security/">
+  <link rel="alternate" hreflang="x-default" href="https://www.telegraf.chat/security/">
+
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+  <script>
+    (function () {
+      var t = null;
+      try { t = localStorage.getItem('tl-theme'); } catch (e) {}
+      if (t ? t === 'dark' : (window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches))
+        document.documentElement.classList.add('tl-dark');
+    })();
+  </script>
+
+  <link rel="preload" href="/fonts/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link href="/css/subpage.css" rel="stylesheet" media="screen">
+  <link href="/css/theme-toggle.css" rel="stylesheet" media="screen">
+  <link href="/css/home.css" rel="stylesheet" media="screen">
+</head>
+
+<body>
+  <div class="tl_page_wrap">
+    <header class="tl_nav">
+      <div class="tl_wrap tl_nav_inner">
+        <a href="/en/" class="tl_brand">Telegraf<span class="tl_brand_origin"><span class="tl_flag" aria-hidden="true"></span><span>MADE &amp; HOSTED<br>IN INDONESIA</span></span></a>
+        <nav class="tl_nav_links" aria-label="Main">
+          <a href="/en/security/" class="tl_nav_link" aria-current="page">Security</a>
+          <a href="/en/#pricing" class="tl_nav_link">Pricing</a>
+        </nav>
+        <details class="tl_lang">
+          <summary class="tl_lang_btn" aria-label="Language: EN">EN<svg class="tl_lang_globe" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.5"/><path d="M1.5 8h13M8 1.5c1.8 1.8 2.7 4 2.7 6.5S9.8 12.7 8 14.5C6.2 12.7 5.3 10.5 5.3 8S6.2 3.3 8 1.5z"/></svg><svg class="tl_lang_chevron" viewBox="0 0 12 8" aria-hidden="true"><path d="M1 1.5 6 6.5l5-5"/></svg></summary>
+          <div class="tl_lang_menu">
+            <a href="/security/" hreflang="id" lang="id" class="tl_lang_option">Bahasa Indonesia</a>
+            <a href="/en/security/" hreflang="en" lang="en" class="tl_lang_option" aria-current="true">English</a>
+          </div>
+        </details>
+        <button id="theme-toggle" class="tl-theme-toggle" aria-label="Toggle light/dark theme">
+          <span class="tl-ic tl-ic-sun">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          </span>
+          <span class="tl-ic tl-ic-moon">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          </span>
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <section class="tl_hero">
+        <div class="tl_wrap">
+          <h1 class="tl_hero_title">Security for organizations that handle sensitive data</h1>
+        </div>
+      </section>
+
+      <section class="tl_sec_cards">
+        <div class="tl_wrap">
+          <div class="tl_sec_card">
+            <h2 class="tl_sec_card_title">Meets the requirements of Indonesia&rsquo;s Personal Data Protection Law</h2>
+            <ul class="tl_sec_list">
+              <li class="tl_sec_item">
+                <h3 class="tl_sec_item_title">Data stored on servers in Indonesia</h3>
+                <p>Messages, files, and account data for the Cloud service are stored and processed on servers located in the Republic of Indonesia.</p>
+              </li>
+              <li class="tl_sec_item">
+                <h3 class="tl_sec_item_title">No AWS, Google Cloud, or Azure &ndash; Telegraf uses a local cloud provider</h3>
+                <p>Telegraf is hosted by a local cloud provider in Indonesia, not on AWS, Google Cloud, or Microsoft Azure.</p>
+              </li>
+              <li class="tl_sec_item">
+                <h3 class="tl_sec_item_title">Telegraf is subject to Indonesian law</h3>
+                <p>As an Indonesian company, PT. Chat Platform Indonesia is subject to Indonesian law, including Law No. 27 of 2022 on Personal Data Protection. Because the data is not hosted by a US cloud provider, it is not under the control of a provider subject to the CLOUD Act.</p>
+              </li>
+              <li class="tl_sec_item">
+                <h3 class="tl_sec_item_title">No use of external tracking tools</h3>
+                <p>Telegraf does not use any external tracking tools, such as Google Analytics or IP address based services. The data collected is processed exclusively by Telegraf.</p>
+              </li>
+            </ul>
+          </div>
+
+          <div class="tl_disclosure">
+            <h2 class="tl_sec_card_title">What we don&rsquo;t have yet</h2>
+            <p class="tl_sec_card_lead">We want to be upfront: Telegraf does not yet hold the following certifications.</p>
+            <ul class="tl_status">
+              <li class="tl_status_row">
+                <div>
+                  <p class="tl_status_name">ISO/IEC 27001</p>
+                  <p class="tl_status_desc">Information security management system</p>
+                </div>
+                <span class="tl_badge">Not yet certified</span>
+              </li>
+              <li class="tl_status_row">
+                <div>
+                  <p class="tl_status_name">ISO/IEC 27017</p>
+                  <p class="tl_status_desc">Information security controls for cloud services</p>
+                </div>
+                <span class="tl_badge">Not yet certified</span>
+              </li>
+              <li class="tl_status_row">
+                <div>
+                  <p class="tl_status_name">ISO/IEC 27018</p>
+                  <p class="tl_status_desc">Protection of personal data in the cloud</p>
+                </div>
+                <span class="tl_badge">Not yet certified</span>
+              </li>
+            </ul>
+            <p class="tl_sec_card_note">If your organization requires a specific certification, <a href="https://wa.me/6281298219323" target="_blank" rel="noopener">contact us</a> to discuss your requirements, including the on-premise option.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="tl_section">
+        <div class="tl_wrap">
+          <div class="tl_cta">
+            <h2 class="tl_cta_title">Any other questions?</h2>
+            <p class="tl_cta_lead">Try it for free, or talk to us about what your organization needs.</p>
+            <div class="tl_cta_actions">
+              <a href="https://web.telegraf.chat" class="tl_btn tl_btn_inverse">Try free for 14 days</a>
+              <a href="https://wa.me/6281298219323" target="_blank" rel="noopener" class="tl_btn tl_btn_outline">Contact us</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="tl_footer">
+      <div class="tl_wrap">
+        <p class="tl_footer_help">Happy to help! <a href="mailto:support@telegraf.chat" class="tl_footer_help_link">support@telegraf.chat</a></p>
+        <div class="tl_footer_grid">
+          <div>
+            <p class="tl_footer_title">Telegraf</p>
+            <ul class="tl_footer_links">
+              <li><a href="/en/security/" class="tl_footer_link">Security</a></li>
+              <li><a href="/en/#pricing" class="tl_footer_link">Pricing</a></li>
+            </ul>
+          </div>
+          <div>
+            <p class="tl_footer_title">Company</p>
+            <ul class="tl_footer_links">
+              <li><a href="/privacy" class="tl_footer_link">Privacy Policy (Indonesian)</a></li>
+              <li><a href="/terms" class="tl_footer_link">Terms of Use (Indonesian)</a></li>
+            </ul>
+          </div>
+          <div>
+            <p class="tl_footer_title">Address</p>
+            <p class="tl_footer_address">
+              Jl. Niin No 24, Depok, Jawa Barat 16426<br>
+              Indonesia
+            </p>
+          </div>
+        </div>
+        <div class="tl_footer_bottom">
+          <span>PT. Chat Platform Indonesia &copy; 2017&ndash;<span id="tl_footer_year">2026</span></span>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script>document.getElementById('tl_footer_year').textContent = new Date().getFullYear();</script>
+  <script src="/js/lang.js"></script>
+  <script src="/js/theme-toggle.js"></script>
+</body>
+
+</html>
