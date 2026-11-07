@@ -132,34 +132,18 @@ p { margin: 0; }
   letter-spacing: -0.5px;
   line-height: 1;
 }
-.tl_brand_origin {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  margin-left: 2px;
-  color: var(--tl-wordmark);
-  font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-  font-size: 10px;
-  font-weight: 500;
-  letter-spacing: 0.02em;
-  line-height: 1;
-  white-space: nowrap;
-  /* Lines up the flag and text with the wordmark's cap height and baseline */
-  transform: translateY(-1px);
-}
-/* Upright bar with the flag's horizontal stripes, as in Stackfield's logo */
-.tl_flag {
+/* The mark sits inside generous padding in the PNG, so it runs larger than
+   the wordmark's cap height to look the same weight */
+.tl_brand_logo {
   flex: none;
-  width: 5px;
-  height: 19px;
-  background: linear-gradient(to bottom, #ce1126 50%, #ffffff 50%);
-  box-shadow: 0 0 0 0.5px rgba(0, 0, 0, 0.18);
+  width: 32px;
+  height: 32px;
+  margin-right: -2px;
 }
-html.tl-dark .tl_flag { box-shadow: none; }
 .tl_nav_links {
   display: none;
   gap: 24px;
-  margin-left: clamp(40px, 8vw, 110px);
+  margin-left: clamp(24px, 5vw, 64px);
 }
 .tl_nav_link,
 .tl_nav_link:hover {
@@ -338,6 +322,8 @@ html.tl-dark .tl_flag { box-shadow: none; }
   margin: 0 auto 48px;
   text-align: center;
 }
+/* A head that is only a label sits closer to the content it names */
+.tl_section_head_label { margin-bottom: 24px; }
 .tl_eyebrow {
   margin-bottom: 12px;
   color: var(--tl-accent);
