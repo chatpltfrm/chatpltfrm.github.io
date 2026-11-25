@@ -654,9 +654,7 @@ p { margin: 0; }
 .tl_plan_name {
   font-size: 19px;
   font-weight: 600;
-  letter-spacing: 0.02em;
   line-height: 24px;
-  text-transform: uppercase;
 }
 .tl_plan_price {
   display: flex;

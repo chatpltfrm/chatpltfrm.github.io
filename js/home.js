@@ -25,16 +25,16 @@
 
   // Go allows at most 10 users and fades out above that, as on Stackfield
   var usersSelect = document.getElementById('tl_users');
-  var starter = document.querySelector('[data-max-users]');
+  var goPlan = document.querySelector('[data-max-users]');
 
   var cloudPlans = document.getElementById('tl_plans_cloud');
   var largePlans = document.getElementById('tl_large');
   var billing = document.querySelector('.tl_billing');
 
-  function updateStarter() {
-    var isInactive = Number(usersSelect.value) > Number(starter.getAttribute('data-max-users'));
-    starter.classList.toggle('tl_plan_inactive', isInactive);
-    starter.querySelector('.tl_plan_limit').hidden = !isInactive;
+  function updateGoPlan() {
+    var isInactive = Number(usersSelect.value) > Number(goPlan.getAttribute('data-max-users'));
+    goPlan.classList.toggle('tl_plan_inactive', isInactive);
+    goPlan.querySelector('.tl_plan_limit').hidden = !isInactive;
 
     // "100+" swaps the plans for a contact box, as on Stackfield
     var isLarge = usersSelect.value === '100+';
@@ -44,8 +44,8 @@
   }
 
   // Browsers may restore the previous choice on reload
-  usersSelect.addEventListener('change', updateStarter);
-  updateStarter();
+  usersSelect.addEventListener('change', updateGoPlan);
+  updateGoPlan();
 
   // Yearly / monthly billing switch: on means monthly
   var billingSwitch = document.getElementById('tl_billing');
