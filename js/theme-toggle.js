@@ -51,8 +51,19 @@
     clone.style.left = -window.pageXOffset + 'px';
     ov.appendChild(clone);
 
+    // The legal pages' table of contents is fixed and lives outside the page
+    // wrapper, so it needs its own light copy or the reveal blanks it out
+    var toc = document.querySelector('.tl_toc');
+    var tocClone = null;
+    if (toc) {
+      tocClone = toc.cloneNode(true);
+      tocClone.classList.add('tl-skin-light');
+      ov.appendChild(tocClone);
+    }
+
     clip(ov, nextDark ? cFull : cZero);
     document.body.appendChild(ov);
+    if (tocClone) tocClone.scrollTop = toc.scrollTop;
     if (nextDark) { root.classList.add('tl-dark'); save(true); }
     requestAnimationFrame(function () {
       requestAnimationFrame(function () {
