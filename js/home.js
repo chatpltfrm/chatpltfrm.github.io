@@ -23,7 +23,7 @@
     });
   });
 
-  // Starter allows at most 10 users and fades out above that, as on Stackfield
+  // Go allows at most 10 users and fades out above that, as on Stackfield
   var usersSelect = document.getElementById('tl_users');
   var starter = document.querySelector('[data-max-users]');
 
