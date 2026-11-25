@@ -378,17 +378,16 @@ p { margin: 0; }
   color: var(--tl-muted);
   fill: var(--tl-muted);
 }
-/* Indonesia is wide and flat, so the map overhangs its slot to stay legible */
-.tl_security_item .tl_icon_map {
-  width: 76px;
-  margin: 0 -10px;
-}
 .tl_security_title {
   max-width: 210px;
   color: var(--tl-text);
   font-size: 16px;
   font-weight: 500;
   line-height: 24px;
+}
+.tl_security_title sup {
+  font-size: 0.5em;
+  line-height: 0;
 }
 .tl_security_more {
   margin-top: 48px;
